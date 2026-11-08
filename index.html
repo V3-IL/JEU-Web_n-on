@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Néon Survivors — survis, grimpe au classement</title>
+<meta name="description" content="Un jeu de survie dans le navigateur. Compte gratuit, classement des meilleurs temps.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Archivo+Narrow:wght@700&display=swap">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="logo" href="./">NÉON<br>SURVIVORS</a><div class="hr"><a href="about.html">À propos</a><button id="mute" type="button" class="ghost"></button><div id="account"></div></div></header>
+<main>
+ <section>
+  <div id="stage"><canvas id="c"></canvas><button id="dash" type="button">DASH</button><div id="ui"></div></div>
+  <p class="hint">ZQSD, WASD ou flèches pour bouger · Espace pour dasher · M pour le son · tu tires tout seul. Sur mobile : glisse le doigt.</p>
+ </section>
+ <aside>
+  <h2>Classement</h2>
+  <div class="tabs"><button type="button" data-m="seconds" class="on">Temps</button><button type="button" data-m="kills">Kills</button><button type="button" data-m="level">Niveau</button></div><div class="tabs"><button type="button" data-d="" class="on">Général</button><button type="button" data-d="30">30 jours</button><button type="button" data-d="7">7 jours</button></div>
+  <table><thead><tr><th>#</th><th>Joueur</th><th id="vh">Temps</th></tr></thead><tbody id="rows"></tbody></table>
+  <p id="boardmsg"></p>
+ </aside>
+</main>
+<footer>Fait main. Un meilleur temps par joueur, vérifié côté serveur.</footer>
+<dialog id="auth"><form id="af" novalidate>
+ <h3 id="at">Connexion</h3>
+ <label id="ul" hidden>Pseudo (3–16 lettres, chiffres, _)<input name="u" autocomplete="username" maxlength="16"></label>
+ <label>E-mail<input name="e" type="email" autocomplete="email" required></label>
+ <label>Mot de passe (8 caractères min.)<input name="p" type="password" autocomplete="current-password" minlength="8" required></label>
+ <p id="am" role="alert"></p>
+ <div class="act"><button type="submit" id="as">Se connecter</button><button type="button" id="sw" class="ghost">Créer un compte</button><button type="button" id="ac" class="ghost">Fermer</button></div>
+</form></dialog>
+<dialog id="prof"><div id="pc"></div><div class="act"><button type="button" id="pcl">Fermer</button></div></dialog>
+<script src="game.js"></script>
+<script type="module" src="app.js"></script>
+</body></html>
